@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="AppSetUp/AppSetUp.csproj" />
+  <Project Path="DvsTyle.OpenDataTable.Core/DvsTyle.OpenDataTable.Core.csproj" />
+</Solution>

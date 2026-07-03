@@ -6,7 +6,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Runtime.Serialization;
 using System.Text;
 
-namespace TagHelpers.Enums
+namespace DvStyle.OpenDataTable.Enums
 {
     public enum ErrorMessageType
     {

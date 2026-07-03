@@ -5,7 +5,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace TagHelpers.Enums
+namespace DvStyle.OpenDataTable.Enums
 {
     public static class EnumsHelpers
     {

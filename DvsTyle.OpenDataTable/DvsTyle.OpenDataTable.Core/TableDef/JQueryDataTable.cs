@@ -7,28 +7,20 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
-using TagHelpers.Enums;
+using DvStyle.OpenDataTable.Enums;
 using TagHelpers.Extensions;
 using TagHelpers.Helpers;
 
 
-namespace TagHelpers.DataTable
+namespace DvStyle.OpenDataTable.TableDef
 {
     [HtmlTargetElement("datatable-container", TagStructure = TagStructure.NormalOrSelfClosing)]
     [RestrictChildren("datatable", "datatable-tooltip-modal", "datatable-tooltip-modal-select", "datatable-tooltip-external", "datatable-tooltip-inline", "datatable-settings")]
     public class JQueryDataTableContainer : TagHelper
     {
-        //[HtmlAttributeName("ressource")]
-        //public OperationRessource Ressource { get; set; }
-
         public override void Init(TagHelperContext context)
         {
             base.Init(context);
-
-            //if (context.AllAttributes["ressource"] != null)
-            //{
-            //    context.Items.Add(new KeyValuePair<object, object>(TagHelperExtensions.OperationRessourceKey, Ressource));
-            //}
             context.Items.Add(new KeyValuePair<object, object>("datatablecontainerid", context.UniqueId));
         }
 
@@ -36,7 +28,7 @@ namespace TagHelpers.DataTable
         {
             output.TagName = "div";
             output.Attributes.Add("class", "datatablerootcontainer");
-            string id = context.GetValue<string>("datatablecontainerid");
+            string? id  = context.Items["datatablecontainerid"]==null ? Guid.NewGuid().ToString() :  context.Items["datatablecontainerid"] as string;
             output.Attributes.Add("id", id);
 
             output.TagMode = TagMode.StartTagAndEndTag;
@@ -182,7 +174,7 @@ namespace TagHelpers.DataTable
                 TagItems.Add(CustomButtonButton);
             }
 
-            string id = context.GetValue<string>("datatablecontainerid");
+            string? id = context.Items["datatablecontainerid"] == null ? Guid.NewGuid().ToString() : context.Items["datatablecontainerid"] as string;
             output.PreContent.SetHtmlContent("<div id='memorydatatablemenu_" + id + "' style='float:left'>");
             output.PostContent.SetHtmlContent("</div>");
             output.TagMode = TagMode.StartTagAndEndTag;

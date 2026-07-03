@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using TagHelpers.Enums;
+using DvStyle.OpenDataTable.Enums;
 
-namespace TagHelpers.DataTable
+namespace DvStyle.OpenDataTable.TableDef
 {
     [AttributeUsage(AttributeTargets.Property | AttributeTargets.Field)]
     public class JQueryDataTableAttribute : Attribute

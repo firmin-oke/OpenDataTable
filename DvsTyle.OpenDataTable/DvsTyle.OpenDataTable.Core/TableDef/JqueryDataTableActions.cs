@@ -6,7 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace TagHelpers.DataTable
+namespace DvStyle.OpenDataTable.TableDef
 {
     [HtmlTargetElement("datatable-actions", ParentTag = "datatable-settings", TagStructure = TagStructure.NormalOrSelfClosing)]
     [RestrictChildren("datatable-action-updaterow", "datatable-action-addto", "datatable-action-edit", "datatable-action-delete", 

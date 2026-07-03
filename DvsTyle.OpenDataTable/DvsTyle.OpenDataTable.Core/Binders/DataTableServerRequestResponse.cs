@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace TagHelpers.Binders
+namespace DvStyle.OpenDataTable.Binders
 {
     public abstract class DataTableServerRequestResponse
     {

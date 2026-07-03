@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace TagHelpers.DataTable
+namespace DvStyle.OpenDataTable.TableDef
 {
     public class DataTableSearch
     {

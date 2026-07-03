@@ -1,10 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using DvStyle.OpenDataTable.Binders;
 
-namespace TagHelpers.DataTable
+namespace DvStyle.OpenDataTable.TableDef
 {
-    public class DataTableResult : DataComponentResult, IDataCompo
+    public class DataTableResult : DataTableServerRequestResponse
     {
         public object[] Data { get; set; }
         public DataTableResult()

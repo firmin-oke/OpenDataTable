@@ -3,9 +3,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using TagHelpers.DataTable;
+using DvStyle.OpenDataTable.TableDef;
 
-namespace TagHelpers.Binders
+namespace DvStyle.OpenDataTable.Binders
 {
     public class DataTableModelBinder : IModelBinder
     {

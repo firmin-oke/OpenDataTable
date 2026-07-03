@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Mvc.ModelBinding.Binders;
 using System;
 
-namespace TagHelpers.Binders
+namespace DvStyle.OpenDataTable.Binders
 {
     public class DataTableModelBinderProvider : IModelBinderProvider
     {
