@@ -4,15 +4,15 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace DvsTyle.OpenDataTable.Core.TableDef
+namespace DvsTyle.OpenDataTable.Core.TableDef.ToolTip
 {
     
     [HtmlTargetElement("datatable-tooltip-external", ParentTag = "datatable-container", TagStructure = TagStructure.WithoutEndTag)]
-    public class DataTableExternalToolTip : DataTableToolTip
+    public class DataTableToolTipExternal : DataTableToolTip
     {
         public string PageTitle { get; set; }
 
-        public DataTableExternalToolTip(IHttpContextAccessor contextAccessor)
+        public DataTableToolTipExternal(IHttpContextAccessor contextAccessor)
             : base(contextAccessor)
         {
 

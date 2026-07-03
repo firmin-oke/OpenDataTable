@@ -13,6 +13,11 @@ namespace DvStyle.OpenDataTable.Binders
     /// </summary>
     public class DataTableModelBinder : IModelBinder
     {
+        /// <summary>
+        /// Lie les données de la requête HTTP aux propriétés du modèle DataTableServerRequestHeader.
+        /// </summary>
+        /// <param name="bindingContext"></param>
+        /// <returns></returns>
         public Task BindModelAsync(ModelBindingContext bindingContext)
         {
             var teste = bindingContext;
@@ -106,6 +111,12 @@ namespace DvStyle.OpenDataTable.Binders
             return Task.CompletedTask;
         }
 
+        /// <summary>
+        /// Récupère la valeur d'un paramètre de la requête HTTP en utilisant le ValueProvider du contexte de liaison.
+        /// </summary>
+        /// <param name="context"></param>
+        /// <param name="key"></param>
+        /// <returns></returns>
         private string GetValue(ModelBindingContext context, string key)
         {
             var result = context.ValueProvider.GetValue(key);

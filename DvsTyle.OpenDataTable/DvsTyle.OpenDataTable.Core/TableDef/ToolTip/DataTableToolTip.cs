@@ -5,7 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace DvsTyle.OpenDataTable.Core.TableDef
+namespace DvsTyle.OpenDataTable.Core.TableDef.ToolTip
 {
     [HtmlTargetElement("datatabletooltip", ParentTag = "datatable-container", TagStructure = TagStructure.WithoutEndTag)]
     public abstract class DataTableToolTip : TagHelper

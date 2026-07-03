@@ -5,11 +5,11 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace DvsTyle.OpenDataTable.Core.TableDef
+namespace DvsTyle.OpenDataTable.Core.TableDef.ToolTipItem
 {
   
 
-    public class DataTableToolTipiItem : TagHelper
+    public abstract class DataTableToolTipiItem : TagHelper
     {
         public string Action { get; set; }
         public string IconClass { get; set; }

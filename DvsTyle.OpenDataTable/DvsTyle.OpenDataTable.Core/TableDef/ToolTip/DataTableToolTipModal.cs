@@ -4,11 +4,11 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace DvsTyle.OpenDataTable.Core.TableDef
+namespace DvsTyle.OpenDataTable.Core.TableDef.ToolTip
 {
     [HtmlTargetElement("datatable-tooltip-modal", ParentTag = "datatable-container", TagStructure = TagStructure.NormalOrSelfClosing)]
     [RestrictChildren("tooltipitem-bulk", "tooltipitem-modal")]
-    public class DataTableModalToolTip : DataTableToolTip
+    public class DataTableToolTipModal : DataTableToolTip
     {
         [HtmlAttributeName("modaltitle")]
         public string Modaltitle { get; set; }
@@ -34,7 +34,7 @@ namespace DvsTyle.OpenDataTable.Core.TableDef
         public bool AddTooltipModal { get; set; } = true;
         public string TooltipPageTitle { get; set; }
 
-        public DataTableModalToolTip(IHttpContextAccessor contextAccessor) : base(contextAccessor)
+        public DataTableToolTipModal(IHttpContextAccessor contextAccessor) : base(contextAccessor)
         {
 
         }

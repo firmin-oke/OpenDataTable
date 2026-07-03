@@ -4,7 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace DvsTyle.OpenDataTable.Core.TableDef
+namespace DvsTyle.OpenDataTable.Core.TableDef.ToolTipItem
 {
     [HtmlTargetElement("tooltipitem-modal", ParentTag = "datatable-tooltip-modal")]
     public class DataTableToolTipItemModal : DataTableToolTipiItem

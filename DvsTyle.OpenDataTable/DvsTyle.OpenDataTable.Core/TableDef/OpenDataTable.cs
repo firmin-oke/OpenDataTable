@@ -347,10 +347,10 @@ namespace DvStyle.OpenDataTable.TableDef
 
                 var requiredAttributes = Source.Metadata.ContainerType
                                  .GetProperty(Source.Metadata.PropertyName)
-                                 .GetCustomAttributes(typeof(JQueryDataTableAttribute), true);
+                                 .GetCustomAttributes(typeof(DataTableModelAttributeDescription), true);
                 if (requiredAttributes != null & requiredAttributes.Count() > 0)
                 {
-                    var jq = (requiredAttributes[0] as JQueryDataTableAttribute);
+                    var jq = (requiredAttributes[0] as DataTableModelAttributeDescription);
                     output.Attributes.Add("isfk", jq.IsForeignKey.ToString().ToLowerInvariant());
                     output.Attributes.Add("fkname", jq.ForeignKeyName);
                     output.Attributes.Add("searchable", jq.Searchable.ToString().ToLower());
