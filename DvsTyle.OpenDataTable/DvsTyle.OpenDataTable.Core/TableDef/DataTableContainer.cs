@@ -5,6 +5,10 @@ using System.Text;
 
 namespace DvsTyle.OpenDataTable.Core.TableDef
 {
+    /// <summary>
+    /// TagHelper pour la définition d'un conteneur de datatable. Ce conteneur peut contenir un ou plusieurs datatables et des modales d'info-bulles.
+    /// Comme tout les tag helpers, il est utilisé pour générer des balises non HTML qui seront ensuite parsées pour la construction des taghml
+    /// </summary>
     [HtmlTargetElement("datatable-container", TagStructure = TagStructure.NormalOrSelfClosing)]
     [RestrictChildren("datatable", "datatable-tooltip-modal", "datatable-tooltip-modal-select", "datatable-tooltip-external", "datatable-tooltip-inline", "datatable-settings")]
     public class DataTableContainer : TagHelper
