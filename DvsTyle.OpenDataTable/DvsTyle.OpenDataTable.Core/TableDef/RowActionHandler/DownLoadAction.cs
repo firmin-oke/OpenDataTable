@@ -7,7 +7,10 @@ using System.Text;
 
 namespace DvsTyle.OpenDataTable.Core.TableDef.RowActionHandler
 {
-   
+
+    /// <summary>
+    /// Permet de définir une action de téléchargement de fichier dans un tableau de données. Cette action est représentée par un bouton qui, lorsqu'il est cliqué, déclenche le téléchargement d'un fichier à partir d'une URL spécifiée.
+    /// </summary>
     [HtmlTargetElement("datatable-action-downloadfile", ParentTag = "datatable-actions", TagStructure = TagStructure.NormalOrSelfClosing)]
     public class DownLoadAction : TagHelper
     {
@@ -20,11 +23,8 @@ namespace DvsTyle.OpenDataTable.Core.TableDef.RowActionHandler
         [HtmlAttributeName("buttonclass")]
         public string ButtonClass { get; set; }
 
-        protected readonly IHttpContextAccessor _contextAccessor;
-
         public DownLoadAction(IHttpContextAccessor contextAccessor)
         {
-            _contextAccessor = contextAccessor;
         }
         public override void Process(TagHelperContext context, TagHelperOutput output)
         {

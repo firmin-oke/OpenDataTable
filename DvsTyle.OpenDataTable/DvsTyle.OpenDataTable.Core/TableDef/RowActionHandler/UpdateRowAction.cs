@@ -8,7 +8,9 @@ using System.Threading.Tasks;
 
 namespace DvsTyle.OpenDataTable.Core.TableDef.RowActionHandler
 {
-   
+    /// <summary>
+    /// Classe pour gérer l'action de mise à jour d'une ligne dans un tableau de données. Cette classe hérite de TagHelper et est utilisée pour générer un élément HTML représentant l'action de mise à jour d'une ligne.
+    /// </summary>
     [HtmlTargetElement("datatable-action-updaterow", ParentTag = "datatable-actions", TagStructure = TagStructure.NormalOrSelfClosing)]
     public class UpdateRowAction : TagHelper
     {
@@ -30,12 +32,10 @@ namespace DvsTyle.OpenDataTable.Core.TableDef.RowActionHandler
         [HtmlAttributeName("action-params")]
         public IDictionary<string, string> ActionParams { get; set; }
 
-        protected readonly IHttpContextAccessor _contextAccessor;
         public bool HasPermission { get; set; } = true;
 
         public UpdateRowAction(IHttpContextAccessor contextAccessor)
         {
-            _contextAccessor = contextAccessor;
             ActionParams = new Dictionary<string, string>();
         }
 

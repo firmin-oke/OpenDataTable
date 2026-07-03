@@ -5,7 +5,10 @@ using System.Text;
 
 namespace DvsTyle.OpenDataTable.Core.TableDef.RowActionHandler
 {
-   
+    /// <summary>
+    /// CLasse pemettant de définir un bouton d'action pour sélectionner les données d'une ligne dans un tableau de données.
+    /// </summary>
+
     [HtmlTargetElement("datatable-action-selectrowdata", ParentTag = "datatable-actions", TagStructure = TagStructure.WithoutEndTag)]
     public class SelectRowDataAction : TagHelper
     {

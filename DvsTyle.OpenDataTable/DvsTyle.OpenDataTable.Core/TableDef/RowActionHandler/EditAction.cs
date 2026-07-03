@@ -7,7 +7,11 @@ using System.Text;
 
 namespace DvsTyle.OpenDataTable.Core.TableDef.RowActionHandler
 {
-  
+
+    /// <summary>
+    /// Cette classe représente une action d'édition dans un tableau de données. 
+    /// Elle est utilisée pour générer un élément HTML correspondant à l'action d'édition, avec des attributs configurables tels que l'URL, le type d'édition, le titre de la modale, etc.
+    /// </summary>
     [HtmlTargetElement("datatable-action-edit", ParentTag = "datatable-actions", TagStructure = TagStructure.NormalOrSelfClosing)]
     public class EditAction : TagHelper
     {
@@ -62,7 +66,7 @@ namespace DvsTyle.OpenDataTable.Core.TableDef.RowActionHandler
 
         public EditAction(IHttpContextAccessor contextAccessor)
         {
-            _contextAccessor = contextAccessor;
+
         }
         public override void Process(TagHelperContext context, TagHelperOutput output)
         {
