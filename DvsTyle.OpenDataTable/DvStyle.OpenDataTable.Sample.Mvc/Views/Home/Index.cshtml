@@ -1,8 +1,76 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
+@model Produit
+@{
+    ViewData["Title"] = "Démo OpenDataTable";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+@* CSS de la lib, servis depuis le package RCL (assets embarqués) *@
+<link rel="stylesheet" href="~/_content/DvsTyle.OpenDataTable.Core/lib/datatables/css/dataTables.dataTables.min.css" />
+<link rel="stylesheet" href="~/_content/DvsTyle.OpenDataTable.Core/lib/datatables/css/buttons.dataTables.min.css" />
+
+<h1 class="mb-3">Démo OpenDataTable — Produits</h1>
+<p class="text-muted">
+    Table à traitement serveur (tri, recherche globale, pagination, export Excel).
+    Données et scripts fournis par le package <code>DvsTyle.OpenDataTable.Core</code>.
+</p>
+
+<datatable-container>
+    <datatable id="produitsGrid">
+        <datatable-header>
+            <headerrow>
+                <headercol asp-for="Reference" />
+                <headercol asp-for="Nom" />
+                <headercol asp-for="Categorie" />
+                <headercol asp-for="Prix" />
+                <headercol asp-for="EnStock" />
+                <headercol asp-for="DateAjout" />
+            </headerrow>
+        </datatable-header>
+    </datatable>
+
+    <datatable-settings datasource="@Url.Action("Data", "Home")">
+        <datatable-columndefs></datatable-columndefs>
+        <datatable-columns>
+            <datatable-column asp-for="Reference" />
+            <datatable-column asp-for="Nom" />
+            <datatable-column asp-for="Categorie" />
+            <datatable-column asp-for="Prix" />
+            <datatable-column asp-for="EnStock" />
+            <datatable-column asp-for="DateAjout" />
+        </datatable-columns>
+        <datatable-dataoptions>
+            <datatable-button name="csv" file-name="produits" file-title="Produits" />
+        </datatable-dataoptions>
+    </datatable-settings>
+</datatable-container>
+
+@section Scripts {
+    @* Dépendances client, servies depuis le package RCL *@
+    <script src="~/_content/DvsTyle.OpenDataTable.Core/lib/jszip/jszip.min.js"></script>
+    <script src="~/_content/DvsTyle.OpenDataTable.Core/lib/datatables/js/dataTables.min.js"></script>
+    <script src="~/_content/DvsTyle.OpenDataTable.Core/lib/datatables/js/dataTables.buttons.min.js"></script>
+    <script src="~/_content/DvsTyle.OpenDataTable.Core/lib/datatables/js/buttons.html5.min.js"></script>
+    <script src="~/_content/DvsTyle.OpenDataTable.Core/lib/datatables/js/dataTables.fixedColumns.min.js"></script>
+    <script src="~/_content/DvsTyle.OpenDataTable.Core/lib/datatables/js/dataTables.select.min.js"></script>
+    <script src="~/_content/DvsTyle.OpenDataTable.Core/lib/sweetalert/sweetalert.min.js"></script>
+
+    @* JS de la lib *@
+    <script src="~/_content/DvsTyle.OpenDataTable.Core/js/DataTableInitializer.js"></script>
+    <script src="~/_content/DvsTyle.OpenDataTable.Core/js/DataTableBuilder.js"></script>
+    <script src="~/_content/DvsTyle.OpenDataTable.Core/js/ModalBuilder.js"></script>
+
+    <script>
+        $(function () {
+            // Shim démo (temporaire, en attendant le découplage du Lot 3) :
+            // le JS de la lib déplace recherche/menu/boutons vers #memorydatatablemenu_<id> (hérité de « Memory »).
+            $('.datatablerootcontainer').each(function () {
+                var id = $(this).attr('id');
+                if (id && !document.getElementById('memorydatatablemenu_' + id)) {
+                    $('<div class="mb-2 d-flex flex-wrap align-items-center"></div>')
+                        .attr('id', 'memorydatatablemenu_' + id)
+                        .prependTo(this);
+                }
+            });
+            DataTableBuilder.initDocument();
+        });
+    </script>
+}
